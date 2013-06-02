@@ -18,8 +18,8 @@ class Auth extends CI_Controller {
   {
     $this->load->library('form_validation');
 
-    $this->form_validation->set_rules('username', 'Nombre de usuario', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|xss_clean|callback_validate_user');
+    $this->form_validation->set_rules('username', 'nombre de usuario', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('password', 'contraseña', 'trim|required|xss_clean|callback_validate_user');
 
     if($this->form_validation->run() === FALSE) {
       $this->load->helper('form');
@@ -55,7 +55,7 @@ class Auth extends CI_Controller {
 
       return TRUE;
     } else {
-      $this->form_validation->set_message('validate_user', 'Invalid username or password');
+      $this->form_validation->set_message('validate_user', 'Nombre de usuario o contraseña invalidos.');
       return FALSE;
     }
   }
