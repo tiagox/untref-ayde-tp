@@ -6,11 +6,11 @@
 
 				<fieldset>
 					<legend>Iniciar sesión</legend>
-					<input type="text" name="username" id="username" placeholder="Nombre de usuario" class="">
-					<input type="password" name="password" id="password" placeholder="Contraseña">
-					<input type="submit" value="Iniciar sesión" class="btn btn-primary pull-right">
 					<?php echo validation_errors('<div class="alert alert-error">', '</div>'); ?>
 
+					<input type="text" name="username" id="username" placeholder="Nombre de usuario" class="span12">
+					<input type="password" name="password" id="password" placeholder="Contraseña" class="span12">
+					<input type="submit" value="Iniciar sesión" class="btn btn-primary span12">
 				</fieldset>
 				<?php echo form_close(); ?>
 
