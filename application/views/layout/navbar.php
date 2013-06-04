@@ -7,18 +7,11 @@
         <span class="icon-bar"></span>
       </button>
       <span class="brand">Soluciones informaticas</span>
-
-      <!-- <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right">
-          Logged in as <a href="#" class="navbar-link">Username</a>
-        </p>
-        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <li><?php echo anchor('/auth/logout', 'Cerrar sesión'); ?></li>
         </ul>
-      </div> -->
-
+      </div>
     </div>
   </div>
 </div>

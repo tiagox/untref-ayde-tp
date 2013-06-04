@@ -5,15 +5,14 @@
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header">Accesos</li>
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#">Reporte de horas</a></li>
+            <li class="active"><?php echo anchor('home', 'Inicio'); ?></li>
+            <li><?php echo anchor('report_hours', 'Reportar horas'); ?></li>
+            <li><?php echo anchor('projects', 'Proyectos'); ?></li>
           </ul>
         </div>
       </div>
       <div class="span9">
         <h1>Soluciones Informáticas</h1>
-        <?php echo anchor('/auth/logout', 'Cerrar sesión', array('class' => 'btn btn-link')); ?>
-
       </div>
 		</div>
 	</div>
