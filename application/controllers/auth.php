@@ -4,14 +4,13 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
 
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
   public function index()
   {
-    redirect('auth/login');
+    if($this->session->userdata('logged_in')) {
+      redirect('home');
+    } else {
+      redirect('auth/login');
+    }
   }
 
   public function login()
@@ -21,7 +20,7 @@ class Auth extends CI_Controller {
     $this->form_validation->set_rules('username', 'nombre de usuario', 'trim|required|xss_clean');
     $this->form_validation->set_rules('password', 'contraseña', 'trim|required|xss_clean|callback_validate_user');
 
-    if($this->form_validation->run() === FALSE) {
+    if (!$this->form_validation->run()) {
       $this->load->helper('form');
 
       $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
@@ -34,11 +33,11 @@ class Auth extends CI_Controller {
 
   public function validate_user($password)
   {
-    $this->load->model('user','',TRUE);
+    $this->load->model('User');
 
     $username = $this->input->post('username');
 
-    $user = $this->user->validate($username, $password);
+    $user = $this->User->validate($username, $password);
 
     if($user) {
       $sess_array = array();

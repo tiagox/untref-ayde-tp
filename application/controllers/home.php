@@ -2,8 +2,6 @@
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-session_start();
-
 class Home extends CI_Controller {
 
   public function __construct()
@@ -11,7 +9,7 @@ class Home extends CI_Controller {
     parent::__construct();
 
     if(!$this->session->userdata('logged_in')) {
-      redirect('');
+      redirect('auth/logout');
     }
   }
 
