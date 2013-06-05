@@ -64,6 +64,17 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+if (getenv("VCAP_SERVICES")) {
+  $services_json = json_decode(getenv("VCAP_SERVICES"), true);
+  $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
+
+  $db['default']['hostname'] = $mysql_config['hostname'];
+  $db['default']['username'] = $mysql_config['user'];
+  $db['default']['password'] = $mysql_config['password'];
+  $db['default']['database'] = $mysql_config['name'];
+  $db['default']['port']     = $mysql_config['port'];
+}
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
