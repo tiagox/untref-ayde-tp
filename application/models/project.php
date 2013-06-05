@@ -6,9 +6,17 @@ class Project extends CI_Model {
   public $name;
   public $active;
 
+  public function get($id)
+  {
+    $query = $this->db->get_where('projects', array('id' => $id));
+
+    return $query->first_row();
+  }
+
   public function get_all()
   {
     $query = $this->db->get('projects');
+
     return $query->result();
   }
 
@@ -26,6 +34,11 @@ class Project extends CI_Model {
     $this->active = $active;
 
     return $this->db->update('projects', $this, array('id' => $id));
+  }
+
+  public function delete($id)
+  {
+    return $this->db->delete('projects', array('id' => $id));
   }
 
 }
