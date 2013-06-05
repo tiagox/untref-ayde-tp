@@ -26,12 +26,13 @@ class Report_Hours extends CI_Controller {
     $last_week = '1';
 
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
-    $this->load->view('layout/navbar');
+    $this->load->view('layout/begin_content', array('selected' => 'report_hours'));
     $this->load->view('report_hours/index', array(
       'weeks' => $weeks,
       'last_week' => $last_week,
       'projects' => $projects
     ));
+    $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }
 }

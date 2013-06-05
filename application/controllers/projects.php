@@ -4,6 +4,12 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Projects extends CI_Controller {
 
+  private $status = array(
+      '1' => 'Activo',
+      '0' => 'Inactivo'
+    );
+
+
   public function __construct()
   {
     parent::__construct();
@@ -20,8 +26,9 @@ class Projects extends CI_Controller {
     $projects = $this->Project->get_all();
 
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
-    $this->load->view('layout/navbar');
+    $this->load->view('layout/begin_content', array('selected' => 'projects'));
     $this->load->view('projects/index', array('projects' => $projects));
+    $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }
 
@@ -38,14 +45,10 @@ class Projects extends CI_Controller {
 
     $this->load->helper('form');
 
-    $status = array(
-      '1' => 'Activo',
-      '0' => 'Inactivo'
-    );
-
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
-    $this->load->view('layout/navbar');
-    $this->load->view('projects/add', array('status' => $status));
+    $this->load->view('layout/begin_content', array('selected' => 'projects'));
+    $this->load->view('projects/add', array('status' => $this->status));
+    $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }
 

@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
       $this->load->helper('form');
 
       $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
-      $this->load->view('login');
+      $this->load->view('auth/login');
       $this->load->view('layout/footer');
     } else {
       redirect('home');
