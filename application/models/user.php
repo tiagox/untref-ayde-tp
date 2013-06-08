@@ -8,7 +8,7 @@ class User extends CI_Model {
       'users',
       array(
         'username' => $username,
-        'password' => MD5($password)
+        'password' => md5($password)
       ),
       1
     );
