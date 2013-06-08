@@ -30,6 +30,7 @@ class Project extends CI_Model {
 
   public function update($id, $name, $active)
   {
+    $this->id = $id;
     $this->name = $name;
     $this->active = $active;
 
