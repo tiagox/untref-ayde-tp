@@ -18,7 +18,7 @@ class Report_Hours extends CI_Controller {
     $this->load->helper('form');
     $this->load->model('Project');
 
-    $projects = $this->Project->get_all();
+    $projects = $this->Project->get_all_active();
 
     $weeks = array(
       '1' => '27/05/2013 - 31/05/2013'
@@ -35,4 +35,5 @@ class Report_Hours extends CI_Controller {
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }
+
 }

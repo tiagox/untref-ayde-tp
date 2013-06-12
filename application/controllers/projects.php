@@ -86,7 +86,11 @@ class Projects extends CI_Controller {
 
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
     $this->load->view('layout/begin_content', array('selected' => 'projects'));
-    $this->load->view('projects/edit', array('status' => $this->status, 'project' => $project));
+    $this->load->view('projects/edit', array(
+      'status' => $this->status,
+      'project' => $project
+      )
+    );
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }

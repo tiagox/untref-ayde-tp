@@ -20,6 +20,13 @@ class Project extends CI_Model {
     return $query->result();
   }
 
+  public function get_all_active()
+  {
+    $query = $this->db->get_where('projects', array('active' => 1));
+
+    return $query->result();
+  }
+
   public function add($name, $active)
   {
     $this->name = $name;
