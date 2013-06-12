@@ -16,15 +16,15 @@ ALTER TABLE  `users`
 -- Update reported_hours table
 ALTER TABLE `reported_hours`
   ADD FOREIGN KEY (`user_id`)
-  REFERENCES `reportedecostos`.`users`(`id`)
+  REFERENCES `users`(`id`)
   ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `reported_hours`
   ADD FOREIGN KEY (`project_id`)
-  REFERENCES `reportedecostos`.`projects`(`id`)
+  REFERENCES `projects`(`id`)
   ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `reported_hours`
   ADD FOREIGN KEY (`week_id`)
-  REFERENCES `reportedecostos`.`weeks`(`id`)
+  REFERENCES `weeks`(`id`)
   ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- View for reporte de costos
