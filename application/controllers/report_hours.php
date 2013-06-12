@@ -20,10 +20,11 @@ class Report_Hours extends CI_Controller {
 
     $projects = $this->Project->get_all_active();
 
-    $weeks = array(
-      '1' => '27/05/2013 - 31/05/2013'
-    );
-    $last_week = '1';
+    $this->load->model('Week');
+
+    $weeks = $this->Week->parse_to_select($this->Week->get_all());
+
+    $last_week = reset(array_keys($weeks));
 
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
     $this->load->view('layout/begin_content', array('selected' => 'report_hours'));
