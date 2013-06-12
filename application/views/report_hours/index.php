@@ -15,7 +15,7 @@
       'id' => $project->id,
       'type' => 'number',
       'value' => 0
-    )); ?></td>
+    )); ?> horas</td>
   </tr>
   <?php endforeach; ?>
 
