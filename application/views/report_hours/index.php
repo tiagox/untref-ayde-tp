@@ -2,33 +2,38 @@
 <?php echo form_open(); ?>
 
 <table class="table">
-  <tr>
-    <td>Semana</td>
-    <td><?php echo form_dropdown('week', $weeks, $last_week); ?></td>
-  </tr>
-  <?php foreach ($projects as $project) : ?>
+  <tbody>
+    <tr>
+      <td>Desarrollador</td>
+      <td><?php echo form_dropdown('user', $users); ?></td>
+    </tr>
+    <tr>
+      <td>Semana</td>
+      <td><?php echo form_dropdown('week', $weeks, $last_week); ?></td>
+    </tr>
+    <?php foreach ($projects as $project) : ?>
 
-  <tr>
-    <td><?php echo $project->name; ?></td>
-    <td><?php echo form_input(array(
-      'name' => 'id',
-      'id' => $project->id,
-      'type' => 'number',
-      'value' => 0
-    )); ?> horas</td>
-  </tr>
-  <?php endforeach; ?>
+    <tr>
+      <td><?php echo $project->name; ?></td>
+      <td><?php echo form_input(array(
+        'name' => 'projects[' . $project->id . ']',
+        'type' => 'number',
+        'value' => 0
+      )); ?> horas</td>
+    </tr>
+    <?php endforeach; ?>
 
-  <tr>
-    <td>&nbsp;</td>
-    <td><?php echo form_submit(array(
-      'value' => 'Guardar',
-      'class' => 'btn btn-primary'
-    )); ?>
+    <tr>
+      <td>&nbsp;</td>
+      <td><?php echo form_submit(array(
+        'value' => 'Guardar',
+        'class' => 'btn btn-primary'
+      )); ?>
 
 
-    <?php echo anchor('home', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
-  </tr>
-  <?php echo form_close(); ?>
+      <?php echo anchor('home', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
+    </tr>
+    <?php echo form_close(); ?>
 
+  </tbody>
 </table>
