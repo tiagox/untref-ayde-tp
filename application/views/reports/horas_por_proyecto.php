@@ -7,6 +7,7 @@
       <tr>
         <th>Proyecto</th>
         <th>Costo</th>
+        <th>Cantidad de recursos</th>
       </tr>
     </thead>
     <tbody>
@@ -14,7 +15,8 @@
 
       <tr>
         <td><?= $row->project ?></td>
-        <td>$ <?= number_format(intval($row->monthly_cost)) ?></td>
+        <td>$ <?= number_format(ceil($row->monthly_cost)) ?></td>
+        <td><?= $row->resources_count ?></td>
       </tr>
       <?php endforeach; ?>
 
