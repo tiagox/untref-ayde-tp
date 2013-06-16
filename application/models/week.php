@@ -9,7 +9,24 @@ class Week extends CI_Model {
   public $id;
   public $begin;
   public $end;
+  public $week_in_month;
   public $month;
+  public $year;
+
+  private $months_names = array(
+    1 => 'Enero',
+    2 => 'Febrero',
+    3 => 'Marzo',
+    4 => 'Abril',
+    5 => 'Mayo',
+    6 => 'Junio',
+    7 => 'Julio',
+    8 => 'Agosto',
+    9 => 'Septiembre',
+    10 => 'Octubre',
+    11 => 'Noviembre',
+    12 => 'Diciembre'
+  );
 
   public function __construct(stdClass $attributes = null)
   {
@@ -19,7 +36,9 @@ class Week extends CI_Model {
       $this->id = $attributes->id;
       $this->begin = new DateTime($attributes->begin);
       $this->end = new DateTime($attributes->end);
+      $this->week_in_month = $attributes->week_in_month;
       $this->month = $attributes->month;
+      $this->year = $attributes->year;
     }
   }
 
@@ -88,7 +107,9 @@ class Week extends CI_Model {
     $weeksToSelect = array();
 
     foreach ($weeks as $week) {
-      $weeksToSelect[$week->id] = strval($week);
+      $weeksToSelect[$week->id] =
+          strval($week) . ' (' . $week->week_in_month . '° de ' .
+          $this->months_names[$week->month] . ' de ' . $week->year . ')';
     }
 
     return $weeksToSelect;
@@ -124,7 +145,9 @@ class Week extends CI_Model {
     $week->begin = $tmp->begin->format(self::SQL_FORMAT);
     $tmp = end($weeks_of_the_month);
     $week->end = $tmp->end->format(self::SQL_FORMAT);
+    $week->week_in_month = NULL;
     $week->month = $month;
+    $week->year = NULL;
 
     return new Week($week);
   }
