@@ -9,7 +9,7 @@
     </tr>
     <tr>
       <td>Semana</td>
-      <td><?php echo form_dropdown('week', $weeks, $last_week); ?></td>
+      <td><?php echo form_dropdown('week', $weeks, $last_week, 'class="span6"'); ?></td>
     </tr>
     <?php foreach ($projects as $project) : ?>
 
