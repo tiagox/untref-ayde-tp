@@ -47,13 +47,18 @@ class Report_Hours extends CI_Controller {
 
     $last_week = reset(array_keys($weeks));
 
+    $this->load->model('Reported_Hour');
+
+    $reported_hours = $this->Reported_Hour->parse_to_select($this->Reported_Hour->get_all());
+
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
     $this->load->view('layout/begin_content', array('selected' => 'report_hours'));
     $this->load->view('report_hours/index', array(
       'users' => $users,
       'weeks' => $weeks,
       'last_week' => $last_week,
-      'projects' => $projects
+      'projects' => $projects,
+      'reported_hours' => $reported_hours
     ));
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');

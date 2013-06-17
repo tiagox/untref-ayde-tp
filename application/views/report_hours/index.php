@@ -15,10 +15,18 @@
 
     <tr>
       <td><?php echo $project->name; ?></td>
-      <td><?php echo form_input(array(
+      <td><?php 
+      $this->load->model('Reported_Hour');
+      if($this->Reported_Hour->report_exists($project->id))
+      {
+		$hours = $reported_hours[$project->id][1][1];
+      } else {
+        $hours = 0;
+      }
+      echo form_input(array(
         'name' => 'projects[' . $project->id . ']',
         'type' => 'number',
-        'value' => 0
+        'value' => $hours
       )); ?> horas</td>
     </tr>
     <?php endforeach; ?>

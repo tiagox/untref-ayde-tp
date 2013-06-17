@@ -35,4 +35,31 @@ class Reported_Hour extends CI_Model {
     return $this->db->get()->result();
   }
 
+  public function get_all()
+  {
+    $query = $this->db->get('reported_hours');
+
+    return $query->result();
+  }
+
+  public function parse_to_select(array $reported_hours)
+  {
+    $reportsToSelect = array();
+
+    foreach ($reported_hours as $report) {
+      $reportsToSelect[$report->project_id][$report->user_id][$report->week_id] = $report->hours;
+    }
+
+    return $reportsToSelect;
+  }
+
+  public function report_exists($project_id)
+  {
+    $this->db->select('project_id');
+    $this->db->from('reported_hours');
+    $this->db->where('project_id', $project_id);
+
+    return $this->db->get()->result();
+  }
+
 }
