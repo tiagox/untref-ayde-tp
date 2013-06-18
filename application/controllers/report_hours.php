@@ -29,7 +29,8 @@ class Report_Hours extends CI_Controller {
         }
       }
 
-      redirect('home');
+      $this->session->set_flashdata('flashSuccess', 'El reporte de horas ha sido guardado correctamente.');
+
     }
 
     $this->load->helper('form');

@@ -67,3 +67,9 @@ function update_hours_sum()
 
   </tbody>
 </table>
+<?if($this->session->flashdata('flashSuccess')):?>
+<div class="alert alert-success">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<?=$this->session->flashdata('flashSuccess')?>
+</div>
+<?endif?>
