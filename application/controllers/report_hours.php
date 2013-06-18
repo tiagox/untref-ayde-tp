@@ -29,6 +29,8 @@ class Report_Hours extends CI_Controller {
         }
       }
 
+      $this->session->set_flashdata('success', 'Las horas fueron guardadas correctamente.');
+
       redirect('report_hours');
     }
 

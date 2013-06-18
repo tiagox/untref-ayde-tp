@@ -1,4 +1,12 @@
 <h1>Reportar horas</h1>
+<?php if ($this->session->flashdata('success')) : ?>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <?= $this->session->flashdata('success') ?>
+
+</div>
+<?php endif; ?>
+
 <?php echo form_open(); ?>
 
 <table class="table">
