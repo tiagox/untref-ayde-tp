@@ -25,7 +25,7 @@ class Projects extends CI_Controller {
 
     $projects = $this->Project->get_all();
 
-    $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+    $this->load->view('layout/header');
     $this->load->view('layout/begin_content', array('selected' => 'projects'));
     $this->load->view('projects/index', array('projects' => $projects));
     $this->load->view('layout/end_content');
@@ -45,7 +45,7 @@ class Projects extends CI_Controller {
 
     $this->load->helper('form');
 
-    $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+    $this->load->view('layout/header');
     $this->load->view('layout/begin_content', array('selected' => 'projects'));
     $this->load->view('projects/add', array('status' => $this->status));
     $this->load->view('layout/end_content');
@@ -84,7 +84,7 @@ class Projects extends CI_Controller {
 
     $this->load->helper('form');
 
-    $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+    $this->load->view('layout/header');
     $this->load->view('layout/begin_content', array('selected' => 'projects'));
     $this->load->view('projects/edit', array(
       'status' => $this->status,

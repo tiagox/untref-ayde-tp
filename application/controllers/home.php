@@ -15,7 +15,7 @@ class Home extends CI_Controller {
 
   public function index()
   {
-    $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+    $this->load->view('layout/header');
     $this->load->view('layout/begin_content', array('selected' => 'home'));
     $this->load->view('home/index');
     $this->load->view('layout/end_content');

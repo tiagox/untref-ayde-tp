@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
     if (!$this->form_validation->run()) {
       $this->load->helper('form');
 
-      $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+      $this->load->view('layout/header');
       $this->load->view('auth/login');
       $this->load->view('layout/footer');
     } else {

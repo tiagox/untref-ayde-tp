@@ -24,7 +24,7 @@ class Register extends CI_Controller {
 $this->form_validation->run();
       $this->load->helper('form');
 
-      $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
+      $this->load->view('layout/header');
       $this->load->view('layout/begin_content', array('selected' => 'register'));
       $this->load->view('register/index');
       $this->load->view('layout/end_content');
