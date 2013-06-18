@@ -6,7 +6,7 @@
 
 				<fieldset>
 					<legend>Iniciar sesión</legend>
-					<?php echo validation_errors('<div class="alert alert-error">', '</div>'); ?>
+					<?php echo validation_errors('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>', '</div>'); ?>
 
 					<input type="text" name="username" id="username" placeholder="Nombre de usuario" class="span12">
 					<input type="password" name="password" id="password" placeholder="Contraseña" class="span12">
