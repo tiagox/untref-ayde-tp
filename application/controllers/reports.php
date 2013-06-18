@@ -39,8 +39,6 @@ class Reports extends CI_Controller {
 
   public function horas_por_proyecto()
   {
-    // $this->output->enable_profiler(TRUE);
-
     $this->load->model('Week');
 
     $month = $this->Week->get_last_closed_month();
