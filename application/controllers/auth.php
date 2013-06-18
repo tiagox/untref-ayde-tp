@@ -7,7 +7,7 @@ class Auth extends CI_Controller {
   public function index()
   {
     if($this->session->userdata('logged_in')) {
-      redirect('home');
+      redirect('report_hours');
     } else {
       redirect('auth/login');
     }
@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
       $this->load->view('auth/login');
       $this->load->view('layout/footer');
     } else {
-      redirect('home');
+      redirect('report_hours');
     }
   }
 

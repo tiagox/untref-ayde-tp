@@ -29,7 +29,7 @@ class Report_Hours extends CI_Controller {
         }
       }
 
-      redirect('home');
+      redirect('report_hours');
     }
 
     $this->load->helper('form');

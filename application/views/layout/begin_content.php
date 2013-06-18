@@ -22,9 +22,6 @@
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header">Accesos</li>
-            <li<?php echo ($selected === 'home') ? ' class="active"' : ''; ?>>
-              <?php echo anchor('home', 'Inicio'); ?>
-            </li>
             <li<?php echo ($selected === 'report_hours') ? ' class="active"' : ''; ?>>
               <?php echo anchor('report_hours', 'Reportar horas'); ?>
             </li>
