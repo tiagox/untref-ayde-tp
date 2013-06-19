@@ -84,7 +84,7 @@ class Reported_Hour extends CI_Model {
         $projects[$row->project_id]['resources'] = array();
       }
 
-      if (!isset($projects[$row->project_id]['resources'][$row->user_id])) {
+      if (!isset($projects[$row->project_id]['resources'][$row->user_id]) && $row->hours > 0) {
         $projects[$row->project_id]['resources'][$row->user_id] = $row->name;
       }
     }
