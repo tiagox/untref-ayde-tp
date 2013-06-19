@@ -23,14 +23,11 @@ $(function() {
   }
 
   function markReportedWeeks () {
-    var reportedHours = 0,
-        i = 0,
-        j = 0,
-        $option,
-        text;
+    var reportedHours, i, j, $option, text;
 
     if (userData && userData.weeks) {
       for (i in userData.weeks) {
+        reportedHours = 0;
         if (userData.weeks[i] && userData.weeks[i].projects) {
           for (j in userData.weeks[i].projects) {
             reportedHours += 1 * userData.weeks[i].projects[j];
