@@ -43,12 +43,13 @@
     <tr>
       <td>Se cargaron: <span id="hours_count" class="label label-important">0</span> de <span id="weekly_hours" class="label">0</span> horas</td>
       <td><?php echo form_submit(array(
+        'id' => 'save_hours',
         'value' => 'Guardar',
         'class' => 'btn btn-primary'
       )); ?>
 
 
-      <?php echo anchor('home', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
+      <?php echo anchor('report_hours', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
     </tr>
     <?php echo form_close(); ?>
 

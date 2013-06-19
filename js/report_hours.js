@@ -1,4 +1,4 @@
-/* global $ */
+/* global $, bootbox */
 
 $(function() {
   'use strict';
@@ -104,6 +104,22 @@ $(function() {
         .attr('class', getLabelType(accumulatedHours, userData.weeklyHours));
   }
 
+  function validateFormBeforeSend () {
+    if (getLoadedHours() < userData.weeklyHours) {
+      var  message = '<p>Va a reportar menos horas de las que corresponden a' +
+          ' una semana.</p><p><strong>¿Esta seguro que desea continuar con' +
+          ' esta acción?</strong></p>';
+
+      bootbox.confirm(message, function(ok) {
+        if (ok) {
+          $($('form').get(0)).submit();
+        }
+      });
+
+      return false;
+    }
+  }
+
   function getLabelType (acumulated, weeklyHours) {
     var label = 'label label-success';
 
@@ -141,6 +157,7 @@ $(function() {
   $('.user').bind('change', fetchUserData);
   $('.week').bind('change', checkIfWeekWasReported);
   $('.project').bind('keyup change', updateCounter);
+  $('#save_hours').bind('click', validateFormBeforeSend);
 
   fetchUserData();
   checkIfWeekWasReported();
