@@ -6,7 +6,13 @@
 
 </div>
 <?php endif; ?>
+<?php if ($this->session->flashdata('error')) : ?>
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <?= $this->session->flashdata('error') ?>
 
+</div>
+<?php endif; ?>
 <?php echo form_open(); ?>
 
 <table class="table">
