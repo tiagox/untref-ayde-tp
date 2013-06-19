@@ -4,6 +4,8 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Report_Hours extends CI_Controller {
 
+  const HOURS_TOLERANCE_FACTOR = 2;
+
   public function __construct()
   {
     parent::__construct();
@@ -15,31 +17,39 @@ class Report_Hours extends CI_Controller {
 
   public function index()
   {
+    $this->load->helper('form');
+    $this->load->model('Project');
+    $this->load->model('User');
+
     if ($this->input->post()) {
       $this->load->model('Reported_Hour');
 
       $user_id = $this->input->post('user');
+
+      $user = $this->User->get_by_id($user_id);
+
       $week_id = $this->input->post('week');
 
       $projects = $this->input->post('projects');
 
-      foreach ($projects as $project_id => $hours) {
-        if ($hours >= 0) {
-          $this->Reported_Hour->save($project_id, $user_id, $week_id, $hours);
+      if (array_sum($projects) <= $user->weekly_hours * self::HOURS_TOLERANCE_FACTOR) {
+        foreach ($projects as $project_id => $hours) {
+          if ($hours >= 0) {
+            $this->Reported_Hour->save($project_id, $user_id, $week_id, $hours);
+          }
         }
+
+        $this->session->set_flashdata('success', 'Las horas fueron guardadas correctamente.');
+
+        redirect('report_hours');
+      } else {
+        $this->session->set_flashdata('error', 'Superó el limite de horas reportadas por semana.');
+
+        redirect('report_hours');
       }
-
-      $this->session->set_flashdata('success', 'Las horas fueron guardadas correctamente.');
-
-      redirect('report_hours');
     }
 
-    $this->load->helper('form');
-    $this->load->model('Project');
-
     $projects = $this->Project->get_all_active();
-
-    $this->load->model('User');
 
     $users = $this->User->parse_to_select($this->User->get_all());
 
