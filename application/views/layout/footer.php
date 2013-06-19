@@ -1,5 +1,6 @@
   <script src="/vendors/jquery/jquery-1.10.1.js"></script>
   <script src="/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/vendors/bootbox/bootbox.js"></script>
   <?php if (isset($jsFiles)) : ?>
   <?php foreach ($jsFiles as $jsFile) : ?>
 
