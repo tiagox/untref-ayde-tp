@@ -86,12 +86,7 @@ $(function() {
   }
 
   function updateCounter () {
-    var $projects = $('.project'),
-        accumulatedHours = 0;
-
-    $projects.each(function (i, project) {
-      accumulatedHours += 1 * $(project).val();
-    });
+    var accumulatedHours = getLoadedHours();
 
     userData.weeklyHours = userData.weeklyHours || 40;
 
@@ -99,6 +94,17 @@ $(function() {
 
     $('#hours_count').html(accumulatedHours)
         .attr('class', getLabelType(accumulatedHours, userData.weeklyHours));
+  }
+
+  function getLoadedHours () {
+    var $projects = $('.project'),
+        accumulatedHours = 0;
+
+    $projects.each(function (i, project) {
+      accumulatedHours += 1 * $(project).val();
+    });
+
+    return accumulatedHours;
   }
 
   function validateFormBeforeSend () {
