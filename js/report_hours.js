@@ -25,6 +25,8 @@ $(function() {
   function markReportedWeeks () {
     var reportedHours, i, j, $option, text;
 
+    clearMarkReportedWeeks();
+
     if (userData && userData.weeks) {
       for (i in userData.weeks) {
         reportedHours = 0;
@@ -43,13 +45,24 @@ $(function() {
     }
   }
 
+  function clearMarkReportedWeeks () {
+    var $options = $('.week option');
+
+    $options.each(function (i, option) {
+      $(option).html($(option).html().replace(/\s\u2714$/, ''));
+    });
+  }
+
   function checkIfWeekWasReported () {
     var weekId = $('.week').val(),
         selectedWeek = $($('.week option').filter(':selected').get(0)).html(),
         reportedHours = 0,
         i = 0;
 
-    if (userData && userData.weeks && userData.weeks[weekId] && userData.weeks[weekId].projects) {
+    if (userData && 
+        userData.weeks && 
+        userData.weeks[weekId] && 
+        userData.weeks[weekId].projects) {
       for (i in userData.weeks[weekId].projects) {
         reportedHours += 1 * userData.weeks[weekId].projects[i];
       }
@@ -58,7 +71,8 @@ $(function() {
     loadReportedHours();
 
     if (reportedHours > 0) {
-      showAlert('Ya fueron reportadas las horas para la <strong>' + selectedWeek + '</strong>');
+      showAlert('Ya fueron reportadas las horas para la <strong>' + 
+          selectedWeek + '</strong>');
     } else {
       clearAlert();
     }
@@ -74,7 +88,10 @@ $(function() {
       $(project).val(0);
     });
 
-    if (userData && userData.weeks && userData.weeks[weekId] && userData.weeks[weekId].projects) {
+    if (userData && 
+        userData.weeks && 
+        userData.weeks[weekId] && 
+        userData.weeks[weekId].projects) {
       for (i in userData.weeks[weekId].projects) {
         var $currentProject = $('input#project_' + i);
 
