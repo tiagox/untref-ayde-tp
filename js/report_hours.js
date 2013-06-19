@@ -61,7 +61,7 @@ $(function() {
     loadReportedHours();
 
     if (reportedHours > 0) {
-      showAlert('Las horas para la <strong>' + selectedWeek + '</strong> ya fueron reportadas.');
+      showAlert('Ya fueron reportadas las horas para la <strong>' + selectedWeek + '</strong>');
     } else {
       clearAlert();
     }
