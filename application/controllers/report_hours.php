@@ -58,7 +58,26 @@ class Report_Hours extends CI_Controller {
       'projects' => $projects
     ));
     $this->load->view('layout/end_content');
-    $this->load->view('layout/footer');
+    $this->load->view('layout/footer', array('jsFiles' => array('/js/report_hours.js')));
+  }
+
+  public function get_user_data()
+  {
+    $user_id = intval($this->input->post('user_id'));
+
+    $user_data = array();
+
+    if ($user_id) {
+      $this->load->model('Reported_Hour');
+
+      $user_data = $this->Reported_Hour->get_all_by_user_id($user_id);
+
+      $this->load->model('User');
+
+      $user_data['weeklyHours'] = $this->User->get_by_id($user_id)->weekly_hours;
+    }
+
+    $this->load->view('layout/json', array('data' => $user_data));
   }
 
 }

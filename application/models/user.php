@@ -8,6 +8,7 @@ class User extends CI_Model {
   public $name;
   public $salary;
   public $rol;
+  public $weekly_hours;
 
   public function __construct(stdClass $attributes = null)
   {
@@ -20,6 +21,7 @@ class User extends CI_Model {
       $this->name = $attributes->name;
       $this->salary = $attributes->salary;
       $this->rol = $attributes->rol;
+      $this->weekly_hours = $attributes->weekly_hours;
     }
   }
 
@@ -52,6 +54,19 @@ class User extends CI_Model {
     }
 
     return $result;
+  }
+
+  public function get_by_id($user_id)
+  {
+    $query = $this->db->get_where('users', array('id' => $user_id));
+
+    $result = array();
+
+    foreach ($query->result() as $user) {
+      $result[] = new User($user);
+    }
+
+    return reset($result);
   }
 
   public function parse_to_select(array $users)

@@ -107,9 +107,8 @@ class Week extends CI_Model {
     $weeksToSelect = array();
 
     foreach ($weeks as $week) {
-      $weeksToSelect[$week->id] =
-          strval($week) . ' (' . $week->week_in_month . '° semana de ' .
-          $this->months_names[$week->month] . ')';
+      $weeksToSelect[$week->id] = $week->week_in_month . '° semana de ' .
+          $this->months_names[$week->month] . ' (' . strval($week) . ')';
     }
 
     return $weeksToSelect;

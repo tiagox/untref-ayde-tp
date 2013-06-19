@@ -114,4 +114,17 @@ class Reported_Hour extends CI_Model {
     return $results;
   }
 
+  public function get_all_by_user_id($user_id)
+  {
+    $result = $this->db->get_where('reported_hours', array('user_id' => $user_id))->result();
+
+    $user_data = array();
+
+    foreach ($result as $row) {
+      $user_data['weeks'][$row->week_id]['projects'][$row->project_id] = $row->hours;
+    }
+
+    return $user_data;
+  }
+
 }

@@ -13,24 +13,27 @@
 
 </div>
 <?php endif; ?>
+<div class="messages"></div>
 <?php echo form_open(); ?>
 
 <table class="table">
   <tbody>
     <tr>
       <td>Desarrollador</td>
-      <td><?php echo form_dropdown('user', $users); ?></td>
+      <td><?php echo form_dropdown('user', $users, null, 'class="span8 user"'); ?></td>
     </tr>
     <tr>
       <td>Semana</td>
-      <td><?php echo form_dropdown('week', $weeks, $last_week, 'class="span6"'); ?></td>
+      <td><?php echo form_dropdown('week', $weeks, $last_week, 'class="span8 week"'); ?></td>
     </tr>
     <?php foreach ($projects as $project) : ?>
 
     <tr>
       <td><?php echo $project->name; ?></td>
       <td><?php echo form_input(array(
+        'id' => 'project_' . $project->id,
         'name' => 'projects[' . $project->id . ']',
+        'class' => 'span2 project',
         'type' => 'number',
         'value' => 0
       )); ?> horas</td>
@@ -38,7 +41,7 @@
     <?php endforeach; ?>
 
     <tr>
-      <td>&nbsp;</td>
+      <td>Se cargaron: <span id="hours_count" class="label label-important">0</span> de <span id="weekly_hours" class="label">0</span> horas</td>
       <td><?php echo form_submit(array(
         'value' => 'Guardar',
         'class' => 'btn btn-primary'
