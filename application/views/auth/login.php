@@ -1,4 +1,4 @@
-<div id="container-fluid">
+<div class="container-fluid">
 	<div class="content">
 		<div class="row-fluid">
 			<div class="span4 offset4">
