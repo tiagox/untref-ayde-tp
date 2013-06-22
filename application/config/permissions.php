@@ -1,5 +1,7 @@
 <?php
 
+global $publicAccess, $permissions;
+
 $publicAccess = [
   'auth' => [
     'index'        => true,
@@ -21,7 +23,7 @@ $permissions = [
       'index'         => true,
       'get_user_data' => true
     ],
-    'report' => [
+    'reports' => [
       'index'              => true,
       'horas_por_proyecto' => true
     ]
@@ -37,7 +39,7 @@ $permissions = [
       'index'         => false,
       'get_user_data' => false
     ],
-    'report' => [
+    'reports' => [
       'index'              => true,
       'horas_por_proyecto' => true
     ]
@@ -53,9 +55,9 @@ $permissions = [
       'index'         => true,
       'get_user_data' => true
     ],
-    'report' => [
-      'index'              => false,
-      'horas_por_proyecto' => false
+    'reports' => [
+      'index'              => true,
+      'horas_por_proyecto' => true
     ]
   ],
   'developer' => [
@@ -69,7 +71,7 @@ $permissions = [
       'index'         => true,
       'get_user_data' => true
     ],
-    'report' => [
+    'reports' => [
       'index'              => false,
       'horas_por_proyecto' => false
     ]

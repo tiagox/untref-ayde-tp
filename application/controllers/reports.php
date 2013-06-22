@@ -22,7 +22,11 @@ class Reports extends CI_Controller {
   public function index()
   {
     $this->load->view('layout/header');
-    $this->load->view('layout/begin_content', array('selected' => 'reports'));
+    $this->load->view('layout/begin_content', array(
+      'rol' => $this->session->userdata('user')->rol,
+      'permissions' => $GLOBALS['permissions'],
+      'selected' => 'reports'
+    ));
     $this->load->view('reports/index');
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
@@ -41,13 +45,16 @@ class Reports extends CI_Controller {
     $report_rows = $this->Reported_Hour->get_cost_report($month);
 
     $this->load->view('layout/header', array('title' => 'Soluciones informaticas'));
-    $this->load->view('layout/begin_content', array('selected' => 'reports'));
+    $this->load->view('layout/begin_content', array(
+      'rol' => $this->session->userdata('user')->rol,
+      'permissions' => $GLOBALS['permissions'],
+      'selected' => 'reports'
+    ));
     $this->load->view('reports/horas_por_proyecto', array(
       'month_name' => $month_name,
       'month_period' => $month_period,
       'report_rows' => $report_rows
-      )
-    );
+    ));
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }

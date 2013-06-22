@@ -22,15 +22,21 @@
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header">Accesos</li>
+            <?php if ($permissions[$rol]['report_hours']['index']) : ?>
             <li<?php echo ($selected === 'report_hours') ? ' class="active"' : ''; ?>>
               <?php echo anchor('report_hours', 'Reportar horas'); ?>
             </li>
+            <?php endif; ?>
+            <?php if ($permissions[$rol]['projects']['index']) : ?>
             <li<?php echo ($selected === 'projects') ? ' class="active"' : ''; ?>>
               <?php echo anchor('projects', 'Proyectos'); ?>
             </li>
+            <?php endif; ?>
+            <?php if ($permissions[$rol]['reports']['index']) : ?>
             <li<?php echo ($selected === 'reports') ? ' class="active"' : ''; ?>>
               <?php echo anchor('reports', 'Generar reporte'); ?>
             </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>

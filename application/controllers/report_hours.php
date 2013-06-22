@@ -44,7 +44,11 @@ class Report_Hours extends CI_Controller {
     $projects = $this->Project->get_all_active();
 
     $this->load->view('layout/header');
-    $this->load->view('layout/begin_content', array('selected' => 'report_hours'));
+    $this->load->view('layout/begin_content', array(
+      'rol' => $this->session->userdata('user')->rol,
+      'permissions' => $GLOBALS['permissions'],
+      'selected' => 'report_hours'
+    ));
     $this->load->view('report_hours/index', array(
       'weeks' => $weeks,
       'last_week' => $last_week,

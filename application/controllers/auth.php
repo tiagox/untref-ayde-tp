@@ -7,7 +7,16 @@ class Auth extends CI_Controller {
   public function index()
   {
     if($this->session->userdata('user')) {
-      redirect('report_hours');
+      switch ($this->session->userdata('user')->rol) {
+        case 'admin':
+        case 'pmo':
+          redirect('reports');
+          break;
+        case 'manager':
+        case 'developer':
+          redirect('report_hours');
+          break;
+      }
     } else {
       redirect('auth/login');
     }
@@ -27,7 +36,7 @@ class Auth extends CI_Controller {
       $this->load->view('auth/login');
       $this->load->view('layout/footer');
     } else {
-      redirect('report_hours');
+      redirect();
     }
   }
 
