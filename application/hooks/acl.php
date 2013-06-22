@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__ . '/../config/permissions.php');
 
 /**
  * @author Santiago Rojo.
@@ -19,11 +20,8 @@ class Acl
 
     $baseURL = $GLOBALS['CFG']->config['base_url'];
 
-    require_once(__DIR__ . '/../config/permissions.php');
-
-
-    if (isset($publicAccess[$class][$method]) &&
-        $publicAccess[$class][$method]) {
+    if (isset($GLOBALS['publicAccess'][$class][$method]) &&
+        $GLOBALS['publicAccess'][$class][$method]) {
       return;
     }
 
@@ -33,8 +31,8 @@ class Acl
 
     $rol = $CI->session->userdata('user')->rol;
 
-    if (isset($permissions[$rol][$class][$method]) &&
-        !$permissions[$rol][$class][$method]) {
+    if (isset($GLOBALS['permissions'][$rol][$class][$method]) &&
+        !$GLOBALS['permissions'][$rol][$class][$method]) {
         header('Location: ' . $baseURL . 'auth/unauthorized');
     }
   }
