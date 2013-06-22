@@ -6,12 +6,9 @@ $(function() {
   var userData = {};
 
   function fetchUserData () {
-    var userId = $('.user').val();
-
     $.ajax({
       url: '/report_hours/get_user_data',
       type: 'POST',
-      data: {'user_id': userId},
       dataType: 'json',
       success: function (response) {
         userData = response;
@@ -59,9 +56,9 @@ $(function() {
         reportedHours = 0,
         i = 0;
 
-    if (userData && 
-        userData.weeks && 
-        userData.weeks[weekId] && 
+    if (userData &&
+        userData.weeks &&
+        userData.weeks[weekId] &&
         userData.weeks[weekId].projects) {
       for (i in userData.weeks[weekId].projects) {
         reportedHours += 1 * userData.weeks[weekId].projects[i];
@@ -71,7 +68,7 @@ $(function() {
     loadReportedHours();
 
     if (reportedHours > 0) {
-      showAlert('Ya fueron reportadas las horas para la <strong>' + 
+      showAlert('Ya fueron reportadas las horas para la <strong>' +
           selectedWeek + '</strong>');
     } else {
       clearAlert();
@@ -88,9 +85,9 @@ $(function() {
       $(project).val(0);
     });
 
-    if (userData && 
-        userData.weeks && 
-        userData.weeks[weekId] && 
+    if (userData &&
+        userData.weeks &&
+        userData.weeks[weekId] &&
         userData.weeks[weekId].projects) {
       for (i in userData.weeks[weekId].projects) {
         var $currentProject = $('input#project_' + i);
@@ -174,7 +171,6 @@ $(function() {
     $('.messages').html('');
   }
 
-  $('.user').bind('change', fetchUserData);
   $('.week').bind('change', checkIfWeekWasReported);
   $('.project').bind('keyup change', updateCounter);
   $('#save_hours').bind('click', validateFormBeforeSend);

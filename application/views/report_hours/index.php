@@ -19,10 +19,6 @@
 <table class="table">
   <tbody>
     <tr>
-      <td>Desarrollador</td>
-      <td><?php echo form_dropdown('user', $users, null, 'class="span8 user"'); ?></td>
-    </tr>
-    <tr>
       <td>Semana</td>
       <td><?php echo form_dropdown('week', $weeks, $last_week, 'class="span8 week"'); ?></td>
     </tr>
@@ -47,7 +43,6 @@
         'value' => 'Guardar',
         'class' => 'btn btn-primary'
       )); ?>
-
 
       <?php echo anchor('report_hours', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
     </tr>
