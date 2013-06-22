@@ -19,15 +19,6 @@ class Reports extends CI_Controller {
     12 => 'Diciembre'
   );
 
-  public function __construct()
-  {
-    parent::__construct();
-
-    if(!$this->session->userdata('logged_in')) {
-      redirect('auth/logout');
-    }
-  }
-
   public function index()
   {
     $this->load->view('layout/header');

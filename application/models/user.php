@@ -9,6 +9,7 @@ class User extends CI_Model {
   public $salary;
   public $rol;
   public $weekly_hours;
+  public $entry_date;
 
   public function __construct(stdClass $attributes = null)
   {
@@ -22,6 +23,7 @@ class User extends CI_Model {
       $this->salary = $attributes->salary;
       $this->rol = $attributes->rol;
       $this->weekly_hours = $attributes->weekly_hours;
+      $this->entry_date = $attributes->entry_date;
     }
   }
 
@@ -37,7 +39,7 @@ class User extends CI_Model {
     );
 
     if($query->num_rows() === 1) {
-      return $query->result();
+      return reset($query->result());
     } else {
       return false;
     }

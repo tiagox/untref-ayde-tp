@@ -6,7 +6,7 @@ class Auth extends CI_Controller {
 
   public function index()
   {
-    if($this->session->userdata('logged_in')) {
+    if($this->session->userdata('user')) {
       redirect('report_hours');
     } else {
       redirect('auth/login');
@@ -40,18 +40,7 @@ class Auth extends CI_Controller {
     $user = $this->User->validate($username, $password);
 
     if($user) {
-      $sess_array = array();
-
-      foreach($user as $row) {
-
-        $sess_array = array(
-          'id' => $row->id,
-          'username' => $row->username
-        );
-
-        $this->session->set_userdata('logged_in', $sess_array);
-      }
-
+      $this->session->set_userdata('user', $user);
       return TRUE;
     } else {
       $this->form_validation->set_message('validate_user', 'Nombre de usuario o contraseña invalidos.');
@@ -61,9 +50,16 @@ class Auth extends CI_Controller {
 
   public function logout()
   {
-    $this->session->unset_userdata('logged_in');
+    $this->session->unset_userdata('user');
     session_destroy();
     redirect();
+  }
+
+  public function unauthorized()
+  {
+    $this->load->view('layout/header');
+    $this->load->view('auth/unauthorized');
+    $this->load->view('layout/footer');
   }
 
 }

@@ -6,15 +6,6 @@ class Report_Hours extends CI_Controller {
 
   const HOURS_TOLERANCE_FACTOR = 2;
 
-  public function __construct()
-  {
-    parent::__construct();
-
-    if(!$this->session->userdata('logged_in')) {
-      redirect('auth/logout');
-    }
-  }
-
   public function index()
   {
     $this->load->helper('form');
