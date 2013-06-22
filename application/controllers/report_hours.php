@@ -38,7 +38,7 @@ class Report_Hours extends CI_Controller {
     }
 
     $this->load->model('Week');
-    $weeks = $this->Week->parse_to_select($this->Week->get_all());
+    $weeks = $this->Week->parse_to_select($this->Week->get_weeks_to_report());
     $last_week = reset(array_keys($weeks));
 
     $projects = $this->Project->get_all_active();
