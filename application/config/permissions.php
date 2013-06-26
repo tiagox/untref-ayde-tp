@@ -26,6 +26,12 @@ $permissions = [
     'reports' => [
       'index'              => true,
       'horas_por_proyecto' => true
+    ],
+    'users' => [
+      'index'  => true,
+      'add'    => true,
+      'edit'   => true,
+      'delete' => true
     ]
   ],
   'pmo' => [
@@ -42,6 +48,12 @@ $permissions = [
     'reports' => [
       'index'              => true,
       'horas_por_proyecto' => true
+    ],
+    'users' => [
+      'index'  => true,
+      'add'    => false,
+      'edit'   => false,
+      'delete' => false
     ]
   ],
   'manager' => [
@@ -58,6 +70,12 @@ $permissions = [
     'reports' => [
       'index'              => true,
       'horas_por_proyecto' => true
+    ],
+    'users' => [
+      'index'  => false,
+      'add'    => false,
+      'edit'   => false,
+      'delete' => false
     ]
   ],
   'developer' => [
@@ -74,6 +92,12 @@ $permissions = [
     'reports' => [
       'index'              => false,
       'horas_por_proyecto' => false
+    ],
+    'users' => [
+      'index'  => false,
+      'add'    => false,
+      'edit'   => false,
+      'delete' => false
     ]
   ]
 ];

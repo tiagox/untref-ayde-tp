@@ -27,6 +27,11 @@
               <?php echo anchor('report_hours', 'Reportar horas'); ?>
             </li>
             <?php endif; ?>
+            <?php if ($permissions[$rol]['users']['index']) : ?>
+            <li<?php echo ($selected === 'users') ? ' class="active"' : ''; ?>>
+              <?php echo anchor('users', 'Usuarios'); ?>
+            </li>
+            <?php endif; ?>
             <?php if ($permissions[$rol]['projects']['index']) : ?>
             <li<?php echo ($selected === 'projects') ? ' class="active"' : ''; ?>>
               <?php echo anchor('projects', 'Proyectos'); ?>
