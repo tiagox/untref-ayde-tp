@@ -21,7 +21,11 @@ class Projects extends CI_Controller {
       'permissions' => $GLOBALS['permissions'],
       'selected' => 'projects'
     ));
-    $this->load->view('projects/index', array('projects' => $projects));
+    $this->load->view('projects/index', array(
+      'rol' => $this->session->userdata('user')->rol,
+      'permissions' => $GLOBALS['permissions'],
+      'projects' => $projects
+    ));
     $this->load->view('layout/end_content');
     $this->load->view('layout/footer');
   }
