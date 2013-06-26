@@ -45,6 +45,7 @@ class Reported_Hour extends CI_Model {
     $this->db->select('rh.hours');
     $this->db->select('u.salary');
     $this->db->select('u.weekly_hours');
+    $this->db->select('DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), u.entry_date)), "%Y") + 0 AS antiquity', FALSE);
 
     $this->db->from('reported_hours rh');
 
@@ -54,7 +55,6 @@ class Reported_Hour extends CI_Model {
 
     $this->db->where('month', $month);
     $this->db->where('p.id >', 0);
-
 
     $projects = $this->sumarize_costs($this->db->get()->result(), $weeks_in_month);
 
@@ -76,10 +76,10 @@ class Reported_Hour extends CI_Model {
 
       if (!isset($projects[$row->project_id]['monthly_cost'])) {
         $projects[$row->project_id]['monthly_cost'] =
-            $row->hours * $this->get_hourly_salary($row->salary, $row->weekly_hours, $weeks_in_month);
+            $row->hours * $this->get_hourly_salary($row->salary, $row->antiquity, $row->weekly_hours, $weeks_in_month);
       } else {
         $projects[$row->project_id]['monthly_cost'] +=
-            $row->hours * $this->get_hourly_salary($row->salary, $row->weekly_hours, $weeks_in_month);
+            $row->hours * $this->get_hourly_salary($row->salary, $row->antiquity, $row->weekly_hours, $weeks_in_month);
       }
 
       if (!isset($projects[$row->project_id]['resources'])) {
@@ -94,10 +94,15 @@ class Reported_Hour extends CI_Model {
     return $projects;
   }
 
-  private function get_hourly_salary($salary, $weekly_hours, $weeks_in_month)
+  private function get_hourly_salary($salary, $antiquity, $weekly_hours, $weeks_in_month)
   {
-    return ($salary * (self::SALARIES_BY_YEAR / self::MONTHS_BY_YEAR) *
+    return ($salary * ($this->get_salaries_by_year($antiquity) / self::MONTHS_BY_YEAR) *
         self::RAW_SALARY_FACTOR) / ($weekly_hours * $weeks_in_month);
+  }
+
+  private function get_salaries_by_year($antiquity)
+  {
+    return self::SALARIES_BY_YEAR + (.5 + floor($antiquity / 5) * .25);
   }
 
   private function parse_to_result_set(array $projects)
