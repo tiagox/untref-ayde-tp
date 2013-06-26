@@ -7,5 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap-responsive.css">
     <link rel="stylesheet" type="text/css" href="/style/print.css" media="print">
+    <?php if (isset($cssFiles)) : ?>
+    <?php foreach ($cssFiles as $cssFile) : ?>
+
+    <link rel="stylesheet" type="text/css" href="<?= $cssFile ?>">
+    <?php endforeach; ?>
+    <?php endif; ?>
+
   </head>
   <body>
