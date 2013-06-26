@@ -15,14 +15,14 @@ class Project extends CI_Model {
 
   public function get_all()
   {
-    $query = $this->db->get('projects');
+    $query = $this->db->get_where('projects', array('id >' => 0));
 
     return $query->result();
   }
 
   public function get_all_active()
   {
-    $query = $this->db->get_where('projects', array('active' => 1));
+    $query = $this->db->get_where('projects', array('active' => 1, 'id >' => 0));
 
     return $query->result();
   }

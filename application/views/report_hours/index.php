@@ -36,6 +36,17 @@
     </tr>
     <?php endforeach; ?>
 
+
+    <tr>
+      <td>Licencias</td>
+      <td><?php echo form_input(array(
+        'id' => 'project_0',
+        'name' => 'projects[0]',
+        'class' => 'span2 project',
+        'type' => 'number',
+        'value' => 0
+      )); ?> horas</td>
+    </tr>
     <tr>
       <td>Se cargaron: <span id="hours_count" class="label label-important">0</span> de <span id="weekly_hours" class="label">0</span> horas</td>
       <td><?php echo form_submit(array(

@@ -53,6 +53,8 @@ class Reported_Hour extends CI_Model {
     $this->db->join('weeks w', 'rh.week_id = w.id');
 
     $this->db->where('month', $month);
+    $this->db->where('p.id >', 0);
+
 
     $projects = $this->sumarize_costs($this->db->get()->result(), $weeks_in_month);
 
