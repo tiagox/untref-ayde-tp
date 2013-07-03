@@ -13,6 +13,10 @@ class Acl
     $CI =& get_instance();
     $CI->load->library('session');
 
+    if ($CI->input->is_cli_request()) {
+      return;
+    }
+
     $routing =& load_class('Router');
 
     $class = $routing->fetch_class();
