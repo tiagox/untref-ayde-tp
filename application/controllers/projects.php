@@ -27,7 +27,7 @@ class Projects extends CI_Controller {
       'projects' => $projects
     ));
     $this->load->view('layout/end_content');
-    $this->load->view('layout/footer');
+    $this->load->view('layout/footer', array('jsFiles' => array('/js/projects.js')));
   }
 
   public function add()

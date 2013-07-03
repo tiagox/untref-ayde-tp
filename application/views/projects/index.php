@@ -19,7 +19,7 @@
         <?php endif; ?>
 
         <?php if ($permissions[$rol]['projects']['delete']) : ?>
-        <?php echo anchor('projects/delete/' . $project->id, '<i class="icon-trash"></i>', array('class' => 'btn')); ?>
+        <?php echo anchor('projects/delete/' . $project->id, '<i class="icon-trash"></i>', array('class' => 'btn delete-project')); ?>
         <?php endif; ?>
 
       </div>
