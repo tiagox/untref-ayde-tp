@@ -31,12 +31,13 @@ class Reported_Hour extends CI_Model {
     return $this->db->insert('reported_hours', $this);
   }
 
-  public function get_cost_report($month)
+  public function get_cost_report($year, $month)
   {
     $weeks_in_month = $this->db->get_where('weeks', array('month' => $month))->num_rows();
 
     $this->db->select('p.id AS project_id');
     $this->db->select('p.name AS project');
+    $this->db->select('w.year AS year');
     $this->db->select('w.month AS month');
     $this->db->select('w.begin AS week_begin');
     $this->db->select('w.end AS week_end');
@@ -53,6 +54,7 @@ class Reported_Hour extends CI_Model {
     $this->db->join('projects p', 'rh.project_id = p.id');
     $this->db->join('weeks w', 'rh.week_id = w.id');
 
+    $this->db->where('year', $year);
     $this->db->where('month', $month);
     $this->db->where('p.id >', 0);
 

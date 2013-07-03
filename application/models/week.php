@@ -117,6 +117,27 @@ class Week extends CI_Model {
     return $result;
   }
 
+  public function get_reports_months_for_select()
+  {
+    $this->db->select('month');
+    $this->db->select('year');
+    $this->db->from('weeks');
+    $this->db->where('month <=', $this->get_last_closed_month());
+    $this->db->group_by(array('year', 'month'));
+    $this->db->order_by('year', 'desc');
+    $this->db->order_by('month', 'desc');
+
+    $months = array();
+
+    foreach ($this->db->get()->result() as $month) {
+      $value = '/' . $month->year . '/' . $month->month;
+      $option = $this->months_names[$month->month] . ' de ' . $month->year;
+      $months[$value] = $option;
+    }
+
+    return $months;
+  }
+
   public function parse_to_select(array $weeks)
   {
     $weeksToSelect = array();
