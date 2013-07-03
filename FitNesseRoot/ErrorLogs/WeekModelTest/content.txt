@@ -1,0 +1,7 @@
+!3 !-slim:/home/tiagox/Development/brar-reportedecostos/phpslim.phar-!
+|'''Date: '''| 10:34:42 PM (ART) on Tuesday, July 2, 2013 |
+|'''Test Page: '''|.WeekModelTest|
+|'''Command: '''| !-php /home/tiagox/Development/brar-reportedecostos/phpslim.phar /home/tiagox/Development/brar-reportedecostos/fixtures  8086-! |
+|'''Exit code: '''| 0 |
+|'''Time elapsed: '''| 0.372 seconds |
+
