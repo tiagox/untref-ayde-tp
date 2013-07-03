@@ -78,6 +78,14 @@ class User extends CI_Model {
     return reset($result);
   }
 
+  public function get_reporter_users()
+  {
+    $this->db->where('rol', 'manager');
+    $this->db->or_where('rol', 'developer');
+
+    return $this->db->get('users')->result();
+  }
+
   public function add($username, $password, $name, $salary, $rol, $weekly_hours, $entry_date)
   {
     $this->username = $username;
