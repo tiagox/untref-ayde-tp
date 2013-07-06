@@ -1,0 +1,36 @@
+{
+  "timeline": {
+    "headline": "Soluciones Informáticas",
+    "type": "default",
+    "text": "Sistema de reporte de recursos consumidos por proyectos.",
+    "startDate": "2013,4,17",
+    "date": [{
+      "startDate": "2013,4,17",
+      "headline": "Presentación del proyecto",
+      "text": "<p>&rarr; Entrevista con Mariano <em>Administrativo</em> Tugnareli.</p><p>&rarr; Pudimos tener un primer acercamiento a los problemas que se generaban con el proceso vigente de recolección de datos.</p>"
+    }, {
+      "startDate": "2013,4,19",
+      "endDate":"2013,4,22",
+      "headline": "Creación de los primeros documentos",
+      "text": "<p>&rarr; Creación de documentos compartidos para registrar el avance del proyecto.</p><p>&rarr; Primera versión de la visión y los objetivos.</p><p>&rarr; Mientras tanto, continuó la comunicación vía email con el cliente.</p>"
+    }, {
+      "startDate":"2013,4,24",
+      "headline":"Más relevamiento",
+      "text":"<p>&rarr; Primera entrevista con el <strong>sponsor</strong> Mariano <em>PMO</em> Tugnareli.</p><p>&rarr; Al tratar con el sponson y principal interesado del proyecto se conoció la necesidad real, y así se redefinió la vision y los objetivos a alcanzar.</p>"
+    }, {
+      "startDate":"2013,4,26",
+      "endDate":"2013,5,6",
+      "headline":"Comienzo del diseño",
+      "text":"<p>&rarr; Definimos el Diagrama de contexto.</p><p>&rarr; Se crearon los primeros <em>mockups</em>.</p>",
+      "asset": {
+        "media":"./images/5._Generacin_de_reportes.png",
+        "credit":"",
+        "caption":"Mockup de la pantalla de generación de reportes."
+      }
+    }, {
+      "startDate":"2013,5,8",
+      "headline":"Definición de los detalles de implementación",
+      "text":"<p>&rarr; Sin mucho avance real, se presentarón mas <em>mockups</em> al PMO.</p><p>&rarr; Se detallaron algunos requerimientos.</p>"
+    }]
+  }
+}
