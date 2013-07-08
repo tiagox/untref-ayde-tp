@@ -96,7 +96,7 @@ class User extends CI_Model {
     $this->weekly_hours = $weekly_hours;
     $this->entry_date = $entry_date;
 
-    return $this->db->insert('usersToSelect', $this);
+    return $this->db->insert('users', $this);
   }
 
   public function update($id, $username, $password, $name, $salary, $rol, $weekly_hours, $entry_date)
