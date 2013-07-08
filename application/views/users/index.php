@@ -17,7 +17,8 @@
     <td><?= $roles[$user->rol] ?></td>
     <td><?= $user->weekly_hours ?></td>
     <td><?= $user->salary ?></td>
-    <td><?= (new DateTime($user->entry_date))->format('d/m/Y') ?></td>
+    <?php $entry_date = new DateTime($user->entry_date); ?>
+    <td><?= $entry_date->format('d/m/Y') ?></td>
     <td>
       <div class="btn-group">
         <?php if ($permissions[$rol]['users']['edit']) : ?>
