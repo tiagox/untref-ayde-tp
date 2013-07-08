@@ -54,11 +54,12 @@
   </tr>
   <tr>
     <td>Fecha de ingreso</td>
+    <?php $entry_date = new DateTime(); ?>
     <td><?php echo form_input(array(
       'id' => 'entry_date',
       'name' => 'entry_date',
       'readonly' => 'readonly',
-      'value' => set_value('entry_date') ?: (new DateTime())->format('Y-m-d')
+      'value' => set_value('entry_date') ?: $entry_date->format('Y-m-d')
     )); ?></td>
   </tr>
   <tr>
