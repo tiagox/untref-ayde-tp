@@ -43,9 +43,9 @@ class Users extends CI_Controller {
     $this->form_validation->set_rules('salary', 'sueldo', 'trim|numeric|required|xss_clean');
     $this->form_validation->set_rules('rol', 'rol', 'trim|required|xss_clean');
     $this->form_validation->set_rules('weekly_hours', 'horas semanales', 'trim|numeric|required|xss_clean');
-    $this->form_validation->set_rules('entry_date', 'horas semanales', 'trim|required|xss_clean|callback_save_user');
+    $this->form_validation->set_rules('entry_date', 'horas semanales', 'trim|required|xss_clean');
 
-    if ($this->form_validation->run()) {
+    if ($this->form_validation->run() && $this->save_user()) {
       redirect('users');
     }
 
@@ -62,7 +62,7 @@ class Users extends CI_Controller {
     $this->load->view('layout/footer', array('jsFiles' => array('/js/users-add.js')));
   }
 
-  public function save_user($entry_date)
+  public function save_user()
   {
     $this->load->model('User');
 
@@ -72,6 +72,7 @@ class Users extends CI_Controller {
     $salary = $this->input->post('salary');
     $rol = $this->input->post('rol');
     $weekly_hours = $this->input->post('weekly_hours');
+    $entry_date = $this->input->post('entry_date');
 
     if ($this->User->add($username, $password, $name, $salary, $rol, $weekly_hours, $entry_date)) {
       return TRUE;
@@ -85,6 +86,7 @@ class Users extends CI_Controller {
   {
     $this->load->library('form_validation');
 
+    $this->form_validation->set_rules('id', 'id', 'trim|required|xss_clean');
     $this->form_validation->set_rules('username', 'nombre de usuario', 'trim|valid_email|required|xss_clean');
     $this->form_validation->set_rules('password', 'contraseña', 'trim|xss_clean');
     $this->form_validation->set_rules('name', 'nombre', 'trim|required|xss_clean');
@@ -92,9 +94,8 @@ class Users extends CI_Controller {
     $this->form_validation->set_rules('rol', 'rol', 'trim|required|xss_clean');
     $this->form_validation->set_rules('weekly_hours', 'horas semanales', 'trim|numeric|required|xss_clean');
     $this->form_validation->set_rules('entry_date', 'horas semanales', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('id', 'id', 'trim|required|xss_clean|callback_update_user');
 
-    if ($this->form_validation->run()) {
+    if ($this->form_validation->run() && $this->update_user()) {
       redirect('users');
     }
 
@@ -119,10 +120,11 @@ class Users extends CI_Controller {
     $this->load->view('layout/footer', array('jsFiles' => array('/js/users-edit.js')));
   }
 
-  public function update_user($id)
+  public function update_user()
   {
     $this->load->model('User');
 
+    $id = $this->input->post('id');
     $username = $this->input->post('username');
     $password = $this->input->post('password') ?: null;
     $name = $this->input->post('name');
