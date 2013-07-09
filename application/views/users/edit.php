@@ -69,7 +69,7 @@
       'class' => 'btn btn-primary'
     )); ?>
 
-    <?php echo anchor('projects', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
+    <?php echo anchor('users', 'Cancelar', array('class' => 'btn btn-link')); ?></td>
   </tr>
   <?php echo form_close(); ?>
 
