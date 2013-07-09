@@ -1,36 +1,125 @@
 {
-  "timeline": {
+  "timeline":
+  {
     "headline": "Soluciones Informáticas",
     "type": "default",
     "text": "Sistema de reporte de recursos consumidos por proyectos.",
-    "startDate": "2013,4,17",
-    "date": [{
-      "startDate": "2013,4,17",
-      "headline": "Presentación del proyecto",
-      "text": "<p>&rarr; Entrevista con Mariano <em>Administrativo</em> Tugnareli.</p><p>&rarr; Pudimos tener un primer acercamiento a los problemas que se generaban con el proceso vigente de recolección de datos.</p>"
-    }, {
-      "startDate": "2013,4,19",
-      "endDate":"2013,4,22",
-      "headline": "Creación de los primeros documentos",
-      "text": "<p>&rarr; Creación de documentos compartidos para registrar el avance del proyecto.</p><p>&rarr; Primera versión de la visión y los objetivos.</p><p>&rarr; Mientras tanto, continuó la comunicación vía email con el cliente.</p>"
-    }, {
-      "startDate":"2013,4,24",
-      "headline":"Más relevamiento",
-      "text":"<p>&rarr; Primera entrevista con el <strong>sponsor</strong> Mariano <em>PMO</em> Tugnareli.</p><p>&rarr; Al tratar con el sponson y principal interesado del proyecto se conoció la necesidad real, y así se redefinió la vision y los objetivos a alcanzar.</p>"
-    }, {
-      "startDate":"2013,4,26",
-      "endDate":"2013,5,6",
-      "headline":"Comienzo del diseño",
-      "text":"<p>&rarr; Definimos el Diagrama de contexto.</p><p>&rarr; Se crearon los primeros <em>mockups</em>.</p>",
-      "asset": {
-        "media":"./images/5._Generacin_de_reportes.png",
-        "credit":"",
-        "caption":"Mockup de la pantalla de generación de reportes."
+    "era": [
+      {
+        "startDate": "2013,4,17",
+        "endDate": "2013,4,26",
+        "headline": "Relevamiento"
+      },
+      {
+        "startDate": "2013,4,26",
+        "endDate": "2013,6,5",
+        "headline": "Diseño y primera implementación"
+      },
+      {
+        "startDate": "2013,6,5",
+        "endDate": "2013,8,1",
+        "headline": "Proceso iterativo incremental"
       }
-    }, {
-      "startDate":"2013,5,8",
-      "headline":"Definición de los detalles de implementación",
-      "text":"<p>&rarr; Sin mucho avance real, se presentarón mas <em>mockups</em> al PMO.</p><p>&rarr; Se detallaron algunos requerimientos.</p>"
-    }]
+    ],
+    "date": [
+      {
+        "startDate": "2013,4,17",
+        "headline": "Presentación del proyecto",
+        "text": "<p>&rarr; Entrevista con Mariano <em>Administrativo</em> Tugnareli.</p><p>&rarr; Pudimos tener un primer acercamiento a los problemas que se generaban con el proceso vigente de recolección de datos.</p>"
+      },
+      {
+        "startDate": "2013,4,19",
+        "endDate": "2013,4,22",
+        "headline": "Primeros documentos",
+        "text": "<p>&rarr; Creación de documentos compartidos para registrar el avance del proyecto.</p><p>&rarr; Primera versión de la visión y los objetivos.</p><p>&rarr; Mientras tanto, continuó la comunicación vía email con el cliente.</p>"
+      },
+      {
+        "startDate": "2013,4,24",
+        "headline": "Más relevamiento",
+        "text": "<p>&rarr; Primera entrevista con el <strong>sponsor</strong> Mariano <em>PMO</em> Tugnareli.</p><p>&rarr; Al tratar con el sponsor y principal interesado del proyecto se conoció la necesidad real, y así se redefinió la vision y los objetivos a alcanzar.</p>"
+      },
+      {
+        "startDate": "2013,4,26",
+        "endDate": "2013,5,6",
+        "headline": "Comienzo del diseño",
+        "text": "<p>&rarr; Diagrama de contexto.</p><p>&rarr; Primeros <em>mockups</em>.</p>",
+        "asset":
+        {
+          "media": "./images/5._Generacin_de_reportes.png",
+          "caption": "Mockup de la pantalla de generación de reportes"
+        }
+      },
+      {
+        "startDate": "2013,5,8",
+        "headline": "Algunos detalles de implementación",
+        "text": "<p>&rarr; Sin mucho avance <em>real</em>, se presentarón más <em>mockups</em>.</p><p>&rarr; Se detallaron algunos requerimientos.</p>",
+        "asset":
+        {
+          "media": "./images/Mockups.png",
+          "caption": "Mockups"
+        }
+      },
+      {
+        "startDate": "2013,5,22",
+        "headline": "Análisis un poco más serio",
+        "text": "<p>&rarr; <em>Use Cases</em>.</p><p>&rarr; Definición y validación de <em>User Stories</em>.</p>",
+        "asset":
+        {
+          "media": "./images/Casos_de_uso-Diagrama.png",
+          "caption": "Use cases"
+        }
+      },
+      {
+        "startDate": "2013,6,5",
+        "headline": "Primera entrega",
+        "text": "<p>&rarr; Presentación de la primera versión del producto.</p><p>&diams; Setup del proyecto.<br>&diams; Login.<br>&diams; Pantallas de reportes <em>mockeadas</em>.<br>&diams; ABM de proyectos.<br>&diams; Reporte de horas (solo formulario).</p><p>&rarr; A partir de ahora el desarrollo se basa en el proceso iterativo incremental.</p><p>&rarr; Priorización de requerimientos.</p>",
+        "asset":
+        {
+          "media": "./images/Proyectos_v01.png",
+          "caption": "Listado de proyectos"
+        }
+      },
+      {
+        "startDate": "2013,6,12",
+        "headline": "Primera iteración",
+        "text": "<p>&rarr; Funcionalidades:</p><p>&diams; Reporte de horas.<br>&diams; Generación de reporte.<br></p><p>&rarr; Priorización y planificación de <em>User Stories</em>.</p>",
+        "asset":
+        {
+          "media": "./images/Reporte_de_horas_v02.png",
+          "caption": "Reporte de horas"
+        }
+      },
+      {
+        "startDate": "2013,6,19",
+        "headline": "Segunda iteración",
+        "text": "<p>&rarr; Se implementó:</p><p>&diams; Ajuste del cálculo de costos dependiendo de la cantidad de semanas en el mes.<br>&diams; Cantidad de recursos por cada proyecto en el reporte de costos.<br>&diams; Mes y número de semana al reportar las horas.<br>&diams; Contador de horas cargadas en el formulario de reporte de horas.<br>&diams; Aviso de semana reportada en el formulario de reporte de horas.<br>&diams; Validación de la cantidad de horas reportadas.</p>",
+        "asset":
+        {
+          "media": "./images/Reporte_de_costos_v03.png",
+          "caption": "Reporte de costos por proyecto"
+        }
+      },
+      {
+        "startDate": "2013,7,3",
+        "headline": "Tercera iteración",
+        "text": "<p>&rarr; Funcionalidades:</p><p>&diams; Control de acceso por tipo de usuario.<br>&diams; Límite de semanas disponibles para reporte de horas.<br>&diams; Reporte de horas por <strong>Licencias</strong>.<br>&diams; Prorrateo de las vacaciones en el cálculo de costos por proyecto.<br>&diams; Generación de reportes de meses anteriores.<br>&diams; Recordatorio por email a los desarrolladores para que reporten las horas.<br>&diams; ABM de Usuarios.</p>",
+        "asset":
+        {
+          "media": "./images/Usuarios_v04.png",
+          "caption": "Listado de usuarios"
+        }
+      },
+      {
+        "startDate": "2013,7,5",
+        "endDate": "2013,7,8",
+        "headline": "Fin del proyecto",
+        "text": "<p>&rarr; Funcionalidades por implementar:</p><p>&diams; Reporte de costos de licencias.<br>&diams; Reporte de cantidad de horas reportadas por cada desarrollador.<br>&diams; Administración manual del ID de los proyectos.</p>"
+      },
+      {
+        "startDate": "2013,7,10",
+        "headline": "Presentación del producto",
+        "text": "<p>... aquí estamos</p>"
+      }
+    ]
   }
 }
