@@ -34,10 +34,10 @@ class Projects extends CI_Controller {
   {
     $this->load->library('form_validation');
 
+    $this->form_validation->set_rules('name', 'nombre', 'trim|required|xss_clean');
     $this->form_validation->set_rules('active', 'estado', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('name', 'nombre', 'trim|required|xss_clean|callback_save_project');
 
-    if ($this->form_validation->run()) {
+    if ($this->form_validation->run() && $this->save_project()) {
       redirect('projects');
     }
 
@@ -54,10 +54,11 @@ class Projects extends CI_Controller {
     $this->load->view('layout/footer');
   }
 
-  public function save_project($name)
+  public function save_project()
   {
     $this->load->model('Project');
 
+    $name = $this->input->post('name');
     $active = $this->input->post('active');
 
     if ($this->Project->add($name, $active)) {
@@ -72,11 +73,11 @@ class Projects extends CI_Controller {
   {
     $this->load->library('form_validation');
 
-    $this->form_validation->set_rules('active', 'estado', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('id', 'id', 'trim|required|xss_clean');
     $this->form_validation->set_rules('name', 'nombre', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('id', 'id', 'trim|required|xss_clean|callback_update_project');
+    $this->form_validation->set_rules('active', 'estado', 'trim|required|xss_clean');
 
-    if ($this->form_validation->run()) {
+    if ($this->form_validation->run() && $this->update_project()) {
       redirect('projects');
     }
 
@@ -101,10 +102,11 @@ class Projects extends CI_Controller {
     $this->load->view('layout/footer');
   }
 
-  public function update_project($id)
+  public function update_project()
   {
     $this->load->model('Project');
 
+    $id = $this->input->post('id');
     $name = $this->input->post('name');
     $active = $this->input->post('active');
 
